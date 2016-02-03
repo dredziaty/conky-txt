@@ -1,0 +1,69 @@
+# clear text conky theme by safian
+# kudos to
+# Tony George (teejee2008@gmail.com)
+# TeoBiguGeekus @forums.bunsenlabs.org
+
+
+background yes
+double_buffer yes
+
+alignment top_middle
+
+border_width 1
+cpu_avg_samples 2
+default_color FFF97A
+default_outline_color white
+default_shade_color white
+draw_borders no
+draw_graph_borders yes
+draw_outline no
+draw_shades no
+
+gap_x -120
+gap_y 7
+net_avg_samples 2
+no_buffers yes
+out_to_console no
+out_to_stderr no
+extra_newline no
+
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_colour 000000
+own_window_argb_visual yes
+own_window_argb_value 0
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+minimum_size 220 0
+stippled_borders 0
+update_interval 1.0
+uppercase no
+use_spacer none
+
+show_graph_scale no
+show_graph_range no
+
+use_xft yes
+xftalpha 0.1
+xftfont Droid Sans:size=13
+color0 FFF97A
+color1 FFB400
+color2 FF6C6C
+color3 00BFFF
+
+TEXT
+${execi 600 bash $HOME/2b_Wunderground_API/2b}\
+${font Droid Sans:size=14}${color0}${time %d %b %Y} ${alignr}${time %H:%M:%S}
+${font}
+Conditions ${alignr}${execi 600  sed -n '63p' $HOME/2b_Wunderground_API/Conditions} 
+Temp ${alignr}± ${execi 600  sed -n '113p' $HOME/2b_Wunderground_API/Conditions}° | ${execi 600  sed -n '67p' $HOME/2b_Wunderground_API/Conditions}° | ${color1}${execi 600  sed -n '39p' $HOME/2b_Wunderground_API/Simple_Forecast}°${color} | ${color3}${execi 600  sed -n '44p' $HOME/2b_Wunderground_API/Simple_Forecast}°${color}
+#UVI  ${alignr}${execi 600  sed -n '121p' $HOME/2b_Wunderground_API/Conditions} 
+Pressure ${alignr}(${execi 600  sed -n '89p' $HOME/2b_Wunderground_API/Conditions}) ${execi 600  sed -n '85p' $HOME/2b_Wunderground_API/Conditions} mb
+Visibility  ${alignr}${execi 600  sed -n '117p' $HOME/2b_Wunderground_API/Conditions}km
+Humidity  ${alignr}${execi 600  sed -n '69p' $HOME/2b_Wunderground_API/Conditions}
+Rain next hour   ${alignr}${execi 600  sed -n '127p' $HOME/2b_Wunderground_API/Conditions}mm
+Sun Rise ${execi 600  sed -n '16p' $HOME/2b_Wunderground_API/Moon_Sun}:${execi 600  sed -n '18p' $HOME/2b_Wunderground_API/Moon_Sun} \
+${alignr}Set ${execi 600  sed -n '21p' $HOME/2b_Wunderground_API/Moon_Sun}:${execi 600  sed -n '23p' $HOME/2b_Wunderground_API/Moon_Sun}${color}
+${execi 600  sed -n '6p' $HOME/2b_Wunderground_API/Moon_Sun} ${alignr}${execi 600  sed -n '2p' $HOME/2b_Wunderground_API/Moon_Sun}%
+Wind ${execi 600 sed -n '73p' $HOME/2b_Wunderground_API/Conditions} ${alignr}${execi 600 sed -n '81p' $HOME/2b_Wunderground_API/Conditions}(${execi 600 sed -n '83p' $HOME/2b_Wunderground_API/Conditions})kph

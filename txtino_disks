@@ -1,0 +1,62 @@
+# clear text conky theme by safian
+# kudos to
+# Tony George (teejee2008@gmail.com)
+# TeoBiguGeekus @forums.bunsenlabs.org
+
+
+
+background yes
+double_buffer yes
+
+alignment middle_middle
+
+border_width 1
+cpu_avg_samples 2
+default_color FFF97A
+default_outline_color white
+default_shade_color white
+draw_borders no
+draw_graph_borders yes
+draw_outline no
+draw_shades no
+
+gap_x -120
+gap_y -220
+net_avg_samples 2
+no_buffers yes
+out_to_console no
+out_to_stderr no
+extra_newline no
+
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_colour 000000
+own_window_argb_visual yes
+own_window_argb_value 0
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+minimum_size 220 0
+stippled_borders 0
+update_interval 2.0
+uppercase no
+use_spacer none
+
+show_graph_scale no
+show_graph_range no
+
+use_xft yes
+xftalpha 0.1
+xftfont Droid Sans:size=13
+color0 FFF97A
+color1 FFB400
+color2 FF6C6C
+color3 00BFFF
+
+TEXT
+${color0}root ${alignr}${fs_free /root}
+${color2}${fs_bar /root}
+${color0}home ${alignr}${fs_free /home}
+${color2}${fs_bar /home}
+${color0}hdd ${alignr}${fs_free /run/media/safian/storage}
+${color2}${fs_bar /run/media/safian/storage}
